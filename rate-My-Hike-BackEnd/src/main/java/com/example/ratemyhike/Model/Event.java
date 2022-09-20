@@ -47,7 +47,7 @@ public class Event {
     public LocalDateTime formattedDateTime() {
         String date = getDate();
         String time = getTime();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM-dd-yy HH:mm");
         return LocalDateTime.parse(date+"T"+time, format);
     }
 

@@ -10,5 +10,5 @@ import java.util.concurrent.atomic.AtomicLong;
 @Repository
 public interface EventRepo extends MongoRepository<Event, Long> {
 
-    Optional<Event> findEventByEventNumber(AtomicLong id);
+    Optional<Event> findEventByEventNumber(AtomicLong eventNumber);
 }
