@@ -1,7 +1,15 @@
 package com.example.ratemyhike.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Trail {
     @Id
     private long id;
@@ -16,5 +24,7 @@ public class Trail {
 
     private String level;
 
+    private String photo;
 
+    private String description;
 }
