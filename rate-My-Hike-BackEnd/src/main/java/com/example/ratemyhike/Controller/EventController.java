@@ -5,12 +5,10 @@ import com.example.ratemyhike.Service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @CrossOrigin("*")
 @RestController
@@ -26,5 +24,23 @@ public class EventController {
         ResponseEntity<List<Event>> responseEntity;
         responseEntity = new ResponseEntity<>(events, HttpStatus.OK);
         return responseEntity;
+    }
+
+    @PostMapping({"/new"})
+    public ResponseEntity<?> getAllEvents(@RequestBody Event event){
+        ResponseEntity<?> responseEntity;
+        try{
+            eventService.createNewEvent(event);
+            responseEntity = new ResponseEntity<>("Event created!", HttpStatus.OK);}
+        catch (Exception e) {
+            responseEntity = new ResponseEntity<>("Event already exists",HttpStatus.NOT_ACCEPTABLE);
+        }
+        return responseEntity;
+    }
+
+    @PutMapping({"/{id}"})
+    public ResponseEntity<?> editEvent(@PathVariable("id") AtomicLong id, @RequestBody Event event){
+        eventService.updateEvent(id, event);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

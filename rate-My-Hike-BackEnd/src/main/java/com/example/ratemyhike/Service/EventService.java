@@ -16,4 +16,6 @@ public interface EventService {
     Event getEventById(AtomicLong id);
 
     void deleteEvent(Event event);
+
+    void updateEvent(AtomicLong id, Event event);
 }

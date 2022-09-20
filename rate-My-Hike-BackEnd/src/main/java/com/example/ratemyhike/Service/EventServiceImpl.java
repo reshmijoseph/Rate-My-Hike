@@ -33,4 +33,13 @@ public class EventServiceImpl implements EventService{
     public void deleteEvent(Event event){
         eventRepo.delete(event);
     }
+
+    @Override
+    public void updateEvent(AtomicLong id, Event event) {
+        Event oldEvent = eventRepo.findEventByEventNumber(id).get();
+        event.setEventNumber(oldEvent.getEventNumber());
+        eventRepo.save(event);
+    }
+
+
 }
