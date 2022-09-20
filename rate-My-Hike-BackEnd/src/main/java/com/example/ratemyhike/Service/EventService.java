@@ -11,4 +11,6 @@ import java.util.List;
 public interface EventService {
 
     List<Event> getAllEvents();
+    Event createNewEvent();
+    Event getEventById();
 }
