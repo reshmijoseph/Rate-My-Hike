@@ -21,7 +21,7 @@ public class Admin {
         this.email = email;
     }
 
-    public int getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
