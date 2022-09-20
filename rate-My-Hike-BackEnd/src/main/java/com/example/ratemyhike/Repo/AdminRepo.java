@@ -1,4 +1,11 @@
 package com.example.ratemyhike.Repo;
 
-public interface AdminRepo {
+import com.example.ratemyhike.Model.Admin;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+@Transactional
+public interface AdminRepo extends MongoRepository<Admin, Long> {
 }

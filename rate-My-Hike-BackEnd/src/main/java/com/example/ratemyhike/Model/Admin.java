@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Admin {
 
     @Id
-    private int accountNumber;
+    private long accountNumber;
     private String name;
     private String email;
 
