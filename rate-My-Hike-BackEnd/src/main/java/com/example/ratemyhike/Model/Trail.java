@@ -15,6 +15,4 @@ public class Trail {
     private int rating;
 
     private String level;
-
-
 }

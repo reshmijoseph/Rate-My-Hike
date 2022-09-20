@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
-public interface EventRepo extends MongoRepository<Event, Long> {
+public interface EventRepo extends MongoRepository<Event, AtomicLong> {
 
     Optional<Event> findEventByEventNumber(AtomicLong eventNumber);
 }

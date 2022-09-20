@@ -31,6 +31,8 @@ public class Event {
     public Long getEventNumber(){
         return this.eventNumber.get();
     }
+
+    public void setEventNumber(Long id) {this.eventNumber.set(id);}
     public String getEventName() {
         return eventName;
     }
