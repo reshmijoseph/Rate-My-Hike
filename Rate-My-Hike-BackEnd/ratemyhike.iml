@@ -46,10 +46,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.7.3" level="project" />
-    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.22" level="project" />
-    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-reactivestreams:4.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:2.7.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.7.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.7.3" level="project" />
@@ -113,6 +109,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.22" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.projectreactor:reactor-test:3.4.22" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.projectreactor:reactor-core:3.4.22" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.restdocs:spring-restdocs-webtestclient:2.0.6.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.restdocs:spring-restdocs-core:2.0.6.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-webflux:5.3.22" level="project" />

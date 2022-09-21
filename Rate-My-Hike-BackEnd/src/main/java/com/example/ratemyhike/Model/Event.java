@@ -1,38 +1,36 @@
 package com.example.ratemyhike.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
 
-@Document
+@Document(collection = "Events")
+@NoArgsConstructor
 public class Event {
 
     @Id
-    private AtomicLong eventNumber = new AtomicLong();
+    private Long eventNumber = 0L;
     private String eventName;
     private String date; //Might need to set a formatter or force the format through the front.
     private String time;
     private String location;
 
-    public Event(){}
-
     public Event(String eventName, String date, String location){
-        this.eventNumber.getAndIncrement();
+        this.eventNumber++;
         this.eventName=eventName;
         this.date=date;
         this.location=location;
     }
 
     public Long getEventNumber(){
-        return this.eventNumber.get();
+        return this.eventNumber;
     }
 
-    public void setEventNumber(Long id) {this.eventNumber.set(id);}
+    public void setEventNumber(Long id) {this.eventNumber=id;}
     public String getEventName() {
         return eventName;
     }

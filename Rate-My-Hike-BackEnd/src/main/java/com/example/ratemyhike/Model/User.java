@@ -1,12 +1,16 @@
 package com.example.ratemyhike.Model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "Users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -21,6 +25,7 @@ public class User {
 
     @Getter @Setter
     private String password;
+
 
 
 }
