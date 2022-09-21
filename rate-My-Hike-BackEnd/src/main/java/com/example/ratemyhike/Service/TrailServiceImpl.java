@@ -58,6 +58,12 @@ public class TrailServiceImpl implements TrailService {
 
     @Override
     public ResponseEntity<?> deleteTrailById(long id) {
-        return null;
+        Optional<Trail> optional = trailRepo.findById(id);
+        if (optional.isPresent()) {
+            trailRepo.deleteById(id);
+            return ResponseEntity.ok("Trail Deleted");
+        }
+        return ResponseEntity.ok("No Trail Available with that ID");
     }
+
 }
