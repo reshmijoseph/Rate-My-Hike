@@ -52,11 +52,11 @@ private AdminRepo adminRepository;
 
     @Override
     public Admin updateAdmin(Admin admin) throws AdminAccountWithTheIDDoesntExistException {
-        Optional<Admin> userOptional = adminRepository.findById(admin.getAdminId());
-        if (userOptional.isPresent()){
+        Optional<Admin> adminOptional = adminRepository.findById(admin.getAdminId());
+        if (adminOptional.isPresent()){
             adminRepository.save(admin);
 
-            return userOptional.get();
+            return adminOptional.get();
         }
         throw new AdminAccountWithTheIDDoesntExistException();
     }
