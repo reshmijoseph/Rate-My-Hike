@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Admin {
 
     @Id
-    private long accountNumber;
+    private long id;
     private String name;
     private String email;
 
@@ -16,18 +16,18 @@ public class Admin {
 
     }
 
-    public Admin(int accountNumber, String name, String email) {
-        this.accountNumber = accountNumber;
+    public Admin(long id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
+    public long getAdminId() {
+        return id;
     }
 
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setAdminId(long id) {
+        this.id = id;
     }
 
     public String getName() {
