@@ -8,6 +8,7 @@ public class RatemyhikeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RatemyhikeApplication.class, args);
+
     }
 
 }
