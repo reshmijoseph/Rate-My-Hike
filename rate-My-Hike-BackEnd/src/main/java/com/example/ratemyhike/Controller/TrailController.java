@@ -18,8 +18,23 @@ public class TrailController {
         return trailService.getAllTrails();
     }
 
+    @GetMapping(value = "/trail/{trailId}")
+    public ResponseEntity<?> getTrailByIdHandler(@PathVariable("trailId") long id) {
+        return trailService.getTrailById(id);
+    }
+
     @PostMapping("/addtrail")
     public ResponseEntity<?> addTrailHandler(@RequestBody Trail trail) {
         return trailService.addTrail(trail);
+    }
+
+    @PutMapping("/edittrail/{trailId}")
+    public ResponseEntity<?> editTrailByIdHandler(@PathVariable("trailId") long id, @RequestBody Trail trail) {
+        return trailService.editTrailById(id, trail);
+    }
+
+    @DeleteMapping("/deletetrail/{trailId}")
+    public ResponseEntity<?> deleteTrailByIdHandler(@PathVariable("trailId") long id) {
+        return trailService.getTrailById(id);
     }
 }
