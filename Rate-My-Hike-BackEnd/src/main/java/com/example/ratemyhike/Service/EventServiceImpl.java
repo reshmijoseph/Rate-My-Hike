@@ -25,7 +25,7 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public Event getEventById(AtomicLong id) {
+    public Event getEventById(Long id) {
         return eventRepo.findEventByEventNumber(id).get();
     }
 
@@ -35,7 +35,7 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public void updateEvent(AtomicLong id, Event event) {
+    public void updateEvent(Long id, Event event) {
         Event oldEvent = eventRepo.findEventByEventNumber(id).get();
         event.setEventNumber(oldEvent.getEventNumber());
         eventRepo.save(event);

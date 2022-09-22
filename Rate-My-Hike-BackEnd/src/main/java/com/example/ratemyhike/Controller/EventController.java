@@ -27,7 +27,7 @@ public class EventController {
     }
 
     @PostMapping({"/new"})
-    public ResponseEntity<?> getAllEvents(@RequestBody Event event){
+    public ResponseEntity<?> postNewEvent(@RequestBody Event event){
         ResponseEntity<?> responseEntity;
         try{
             eventService.createNewEvent(event);
@@ -39,7 +39,7 @@ public class EventController {
     }
 
     @PutMapping({"/{id}"})
-    public ResponseEntity<?> editEvent(@PathVariable("id") AtomicLong id, @RequestBody Event event){
+    public ResponseEntity<?> editEvent(@PathVariable("id") Long id, @RequestBody Event event){
         eventService.updateEvent(id, event);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

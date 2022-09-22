@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document
+@Document(collection = "Trails")
 public class Trail {
     @Id
     private long id;
