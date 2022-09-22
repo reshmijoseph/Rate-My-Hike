@@ -12,8 +12,6 @@ public class Admin {
     private String email;
 
     public Admin() {
-
-
     }
 
     public Admin(long id, String name, String email) {

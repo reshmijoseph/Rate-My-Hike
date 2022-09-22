@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class RatemyhikeApplication implements CommandLineRunner {
+public class RatemyhikeApplication{ //implements CommandLineRunner {
 
     @Autowired
     AdminRepo adminRepo;
@@ -36,11 +36,10 @@ public class RatemyhikeApplication implements CommandLineRunner {
 
     }
 
-
-    @Override
-    public void run(String... args) throws Exception {
-        this.trailRepo.save(new Trail());
-        this.eventRepo.save(new Event());
-        this.adminRepo.save(new Admin());
-    }
+//    @Override
+//    public void run(String... args) throws Exception {
+//        this.trailRepo.save(new Trail());
+//        this.eventRepo.save(new Event());
+//        this.adminRepo.save(new Admin());
+//    }
 }

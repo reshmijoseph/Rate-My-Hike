@@ -26,6 +26,4 @@ public class User {
     @Getter @Setter
     private String password;
 
-
-
 }

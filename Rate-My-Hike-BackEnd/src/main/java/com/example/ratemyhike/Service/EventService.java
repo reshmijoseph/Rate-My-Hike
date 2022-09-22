@@ -1,5 +1,7 @@
 package com.example.ratemyhike.Service;
 
+import com.example.ratemyhike.Exceptions.EventWithIdAlreadyExists;
+import com.example.ratemyhike.Exceptions.EventWithIdDoesntExist;
 import com.example.ratemyhike.Model.Event;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +14,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public interface EventService {
 
     List<Event> getAllEvents();
-    Event createNewEvent(Event event);
-    Event getEventById(Long id);
+    Event createNewEvent(Event event) throws EventWithIdAlreadyExists;
+    Event getEventById(Long id) throws EventWithIdDoesntExist;
 
-    void deleteEvent(Event event);
+    void deleteEvent(Event event) throws EventWithIdDoesntExist;
 
-    void updateEvent(Long id, Event event);
+    void updateEvent(Long id, Event event) throws EventWithIdDoesntExist;
 }
