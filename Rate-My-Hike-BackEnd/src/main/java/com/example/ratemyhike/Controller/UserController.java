@@ -40,10 +40,9 @@ public class UserController {
 
         ResponseEntity<?> responseEntity;
         try {
-            User newUser = user;
-            newUser.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             userService.addNewUser(user);
-            responseEntity = new ResponseEntity<>(newUser, HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
         } catch (UserWithIDAlreadyExistsException e) {
             responseEntity = new ResponseEntity<>("Failed to store the user: Duplicate Resource", HttpStatus.CONFLICT);
         }
