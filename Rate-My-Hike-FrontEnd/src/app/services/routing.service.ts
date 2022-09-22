@@ -19,4 +19,8 @@ export class RoutingService {
         this.router.navigate(['account'])
     }
 
+    goToResources(){
+        this.router.navigate(['resources'])
+    }
+
 }
