@@ -1,5 +1,8 @@
 package com.example.ratemyhike;
 
+import com.example.ratemyhike.Model.Admin;
+import com.example.ratemyhike.Model.Event;
+import com.example.ratemyhike.Model.Trail;
 import com.example.ratemyhike.Model.User;
 import com.example.ratemyhike.Repo.AdminRepo;
 import com.example.ratemyhike.Repo.EventRepo;
@@ -13,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class RatemyhikeApplication{
+public class RatemyhikeApplication implements CommandLineRunner {
 
     @Autowired
     AdminRepo adminRepo;
@@ -33,4 +36,11 @@ public class RatemyhikeApplication{
 
     }
 
+
+    @Override
+    public void run(String... args) throws Exception {
+        this.trailRepo.save(new Trail());
+        this.eventRepo.save(new Event());
+        this.adminRepo.save(new Admin());
+    }
 }
