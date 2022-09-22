@@ -1,4 +1,4 @@
-package com.example.ratemyhike.Model;
+`package com.example.ratemyhike.Model;
 
 
 import org.springframework.data.annotation.Id;
