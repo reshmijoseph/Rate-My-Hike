@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { userInfo } from 'os';
+//import { userInfo } from 'os';
 
 @Injectable({
     providedIn: 'root'
@@ -15,4 +15,8 @@ export class RoutingService {
     goToHome(){
         this.router.navigate(['home'])
     }
+    goToAccount(){
+        this.router.navigate(['account'])
+    }
+
 }
