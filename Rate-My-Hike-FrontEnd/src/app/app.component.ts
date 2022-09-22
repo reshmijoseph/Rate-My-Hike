@@ -15,4 +15,8 @@ export class AppComponent {
   clickAccount(){
     this.router.navigate(['account']);
   }
+
+  clickResources(){
+    this.router.navigate(['resources'])
+  }
 }
