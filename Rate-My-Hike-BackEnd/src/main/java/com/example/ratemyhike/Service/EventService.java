@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public interface EventService {
 
     List<Event> getAllEvents();
-    Event createNewEvent(Event event) throws EventWithIdAlreadyExists;
+    void createNewEvent(Event event) throws EventWithIdAlreadyExists;
     Event getEventById(Long id) throws EventWithIdDoesntExist;
 
     void deleteEvent(Event event) throws EventWithIdDoesntExist;

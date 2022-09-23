@@ -7,30 +7,34 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Document(collection = "Events")
-@NoArgsConstructor
 public class Event {
 
     @Id
-    private Long eventNumber = 0L;
+    private AtomicLong eventNumber = new AtomicLong(0);
     private String eventName;
     private String date; //Might need to set a formatter or force the format through the front.
     private String time;
     private String location;
 
+    public Event(){
+        this.eventNumber.getAndIncrement();
+    }
+
     public Event(String eventName, String date, String location){
-        this.eventNumber++;
+        this.eventNumber.getAndIncrement();
         this.eventName=eventName;
         this.date=date;
         this.location=location;
     }
 
     public Long getEventNumber(){
-        return this.eventNumber;
+        return this.eventNumber.get();
     }
 
-    public void setEventNumber(Long id) {this.eventNumber=id;}
+    public void setEventNumber(Long id) {this.eventNumber.set(id);}
     public String getEventName() {
         return eventName;
     }

@@ -1,6 +1,5 @@
 package com.example.ratemyhike.Service;
 
-import com.example.ratemyhike.Exceptions.EventWithIdAlreadyExists;
 import com.example.ratemyhike.Exceptions.EventWithIdDoesntExist;
 import com.example.ratemyhike.Model.Event;
 import com.example.ratemyhike.Repo.EventRepo;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 
@@ -22,9 +20,14 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public Event createNewEvent(Event event) throws EventWithIdAlreadyExists {
-        if(!eventRepo.existsById(event.getEventNumber())) return eventRepo.save(event);
-        else throw new EventWithIdAlreadyExists();
+    public void createNewEvent(Event event){
+        if(!eventRepo.existsById(event.getEventNumber())) {
+            eventRepo.save(event);
+        }
+        else {
+            event.setEventNumber(event.getEventNumber()+1);
+            createNewEvent(event);
+        }
     }
 
     @Override
