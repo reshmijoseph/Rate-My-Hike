@@ -1,5 +1,6 @@
 package com.example.ratemyhike.Service;
 
+import com.example.ratemyhike.Exceptions.AdminAccountWithEmailAlreadyPresentException;
 import com.example.ratemyhike.Exceptions.AdminAccountWithTheIDAlreadyPresentException;
 import com.example.ratemyhike.Exceptions.AdminAccountWithTheIDDoesntExistException;
 import com.example.ratemyhike.Model.Admin;
@@ -31,15 +32,23 @@ private AdminRepo adminRepository;
     }
 
     @Override
-    public Admin addNewAdmin(Admin admin) throws AdminAccountWithTheIDAlreadyPresentException {
-        Optional<Admin> optional = adminRepository.findById(admin.getAdminId());
+    public Admin addNewAdmin(Admin admin) throws AdminAccountWithTheIDAlreadyPresentException, AdminAccountWithEmailAlreadyPresentException {
+//        Optional<Admin> optional = adminRepository.findById(admin.getAdminId());
+        Optional<Admin> optional = adminRepository.findAdminByEmail(admin.getEmail());
+
+        if(adminRepository.existsById(admin.getAdminId())){
+            admin.setAdminId(admin.getAdminId()+1);
+            addNewAdmin(admin);
+        }
 
         if(optional.isEmpty()) {
             adminRepository.save(admin);
             return admin;
         }
-        throw new AdminAccountWithTheIDAlreadyPresentException();
+//        throw new AdminAccountWithTheIDAlreadyPresentException();
+        throw new AdminAccountWithEmailAlreadyPresentException();
     }
+
 
     @Override
     public void deleteAdmin(Long id) throws AdminAccountWithTheIDDoesntExistException {

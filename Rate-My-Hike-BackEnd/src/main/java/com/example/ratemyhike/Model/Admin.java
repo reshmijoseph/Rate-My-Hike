@@ -12,10 +12,17 @@ public class Admin {
     private String email;
 
     public Admin() {
+        this.id++;
     }
 
     public Admin(long id, String name, String email) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public Admin(String name, String email) {
+        this.id++;
         this.name = name;
         this.email = email;
     }

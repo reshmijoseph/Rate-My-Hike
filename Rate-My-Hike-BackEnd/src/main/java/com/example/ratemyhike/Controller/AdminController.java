@@ -1,5 +1,6 @@
 package com.example.ratemyhike.Controller;
 
+import com.example.ratemyhike.Exceptions.AdminAccountWithEmailAlreadyPresentException;
 import com.example.ratemyhike.Exceptions.AdminAccountWithTheIDAlreadyPresentException;
 import com.example.ratemyhike.Exceptions.AdminAccountWithTheIDDoesntExistException;
 import com.example.ratemyhike.Model.Admin;
@@ -36,7 +37,9 @@ public class AdminController {
             Admin newAdmin = adminService.addNewAdmin(admin);
             responseEntity = new ResponseEntity<>(newAdmin,HttpStatus.CREATED);
         }catch(AdminAccountWithTheIDAlreadyPresentException e) {
-            responseEntity = new ResponseEntity<>("Failed to store the user: Duplicate Resource",HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<>("Failed to store the user: Duplicate Id",HttpStatus.CONFLICT);
+        }catch(AdminAccountWithEmailAlreadyPresentException e) {
+            responseEntity = new ResponseEntity<>("Failed to store the user: Duplicate Email",HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
