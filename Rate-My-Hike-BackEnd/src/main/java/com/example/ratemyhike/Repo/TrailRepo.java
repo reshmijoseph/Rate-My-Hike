@@ -8,5 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface TrailRepo extends MongoRepository<Trail,Long> {
+public interface TrailRepo extends MongoRepository<Trail,Integer> {
 }

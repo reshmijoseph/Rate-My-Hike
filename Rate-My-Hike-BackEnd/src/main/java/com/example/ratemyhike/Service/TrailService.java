@@ -10,12 +10,12 @@ public interface TrailService {
 
     ResponseEntity<?> getAllTrails();
 
-    ResponseEntity<?> getTrailById(long id);
+    ResponseEntity<?> getTrailById(int id);
 
     ResponseEntity<?> addTrail(Trail trail);
 
-    ResponseEntity<?> editTrailById(long id, Trail trail);
+    ResponseEntity<?> editTrailById(int id, Trail trail);
 
-    ResponseEntity<?> deleteTrailById(long id);
+    ResponseEntity<?> deleteTrailById(int id);
 
 }

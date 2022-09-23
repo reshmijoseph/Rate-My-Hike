@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Trails")
 public class Trail {
     @Id
-    private long id;
+    private int id;
 
     private String trailName;
 
