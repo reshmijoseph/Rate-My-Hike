@@ -26,11 +26,18 @@ public class TrailServiceImpl implements TrailService {
 
     @Override
     public ResponseEntity<?> addTrail(Trail trail) {
-        return ResponseEntity.ok(trailRepo.save(trail));
+        if(!trailRepo.existsById(trail.getId())) {
+            trailRepo.save(trail);
+        }
+      else{
+          trail.setId(trail.getId()+1);
+          addTrail(trail);
+        }
+        return ResponseEntity.ok("Trail Added");
     }
 
     @Override
-    public ResponseEntity<?> getTrailById(long id) {
+    public ResponseEntity<?> getTrailById(int id) {
         Optional<Trail> optional = trailRepo.findById(id);
         if (optional.isPresent()) {
             ResponseEntity<?> response =  ResponseEntity.ok(optional.get());
@@ -40,7 +47,7 @@ public class TrailServiceImpl implements TrailService {
 
 
     @Override
-    public ResponseEntity<?> editTrailById(long id, Trail trail) {
+    public ResponseEntity<?> editTrailById(int id, Trail trail) {
         Optional<Trail> optional = trailRepo.findById(id);
         if (optional.isPresent()) {
             Trail trail1 = optional.get();
@@ -57,7 +64,7 @@ public class TrailServiceImpl implements TrailService {
     }
 
     @Override
-    public ResponseEntity<?> deleteTrailById(long id) {
+    public ResponseEntity<?> deleteTrailById(int id) {
         Optional<Trail> optional = trailRepo.findById(id);
         if (optional.isPresent()) {
             trailRepo.deleteById(id);
