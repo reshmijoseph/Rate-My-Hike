@@ -7,8 +7,10 @@ import { RoutingService } from './services/routing.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Rate-My-Hike';
+  
+
 
   constructor(private router: Router){}
 
